@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, App } from 'ionic-angular';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { File } from '@ionic-native/file';
 
 /**
  * Generated class for the EmailPage page.
@@ -15,7 +16,9 @@ import { EmailComposer } from '@ionic-native/email-composer';
   templateUrl: 'email.html',
 })
 export class EmailPage {
-
+  public diretorio: any;
+  public nomeArquivo:any;
+  public texto: any = [];
   public email: any;
 
   constructor(
@@ -23,10 +26,13 @@ export class EmailPage {
     public navParams: NavParams,
     public emailCtrl: EmailComposer,
     public alertCtrl: AlertController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public file: File,
+    public app: App
   ) {
-    
+    this.CreateTXT("Txt predefinido")
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EmailPage');
@@ -72,8 +78,37 @@ export class EmailPage {
       });
       alert.present()
     } else {
-      this.mostraMenssagem('Digite um email')
+      this.mostraMenssagem('email obrigatorio')
     }  
+  }
+
+  CreateTXT(text){
+    this.diretorio = this.file.dataDirectory;
+    this.nomeArquivo = 'arquivo.txt';
+    this.texto = text
+    this.file.writeFile(this.diretorio, this.nomeArquivo, this.texto, { replace: true })
+    .then((result) => {
+      this.mostraMenssagem("txt criado com sucesso",2500)
+    })
+    .catch((err) => this.mostraMenssagem("Erro ao criar arquivo texto " + JSON.stringify(err), 2500));
+  }
+
+  criar(text) {
+    if (this.texto === null) {
+      this.CreateTXT(text)
+    } else {
+      this.mostraMenssagem('Exclua o txt para criar um novo', 2500)
+    }
+  }
+
+  deletar() {
+
+    this.file.removeFile(this.diretorio, this.nomeArquivo).then((res) => {
+      console.log(res)
+      this.mostraMenssagem("Deletado com sucesso", 2500);
+      this.texto = null
+    })
+      .catch((err) => this.mostraMenssagem("Erro ao deletar" + JSON.stringify(err), 2500));
   }
 
   mostraMenssagem(message: string, duration?: number) {

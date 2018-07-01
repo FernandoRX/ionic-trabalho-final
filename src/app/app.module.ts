@@ -16,6 +16,7 @@ import { File } from '@ionic-native/file';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AutenticarProvider } from '../providers/autenticar/autenticar';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     Camera,
     Geolocation,
     BarcodeScanner,
-    EmailComposer
+    EmailComposer,
+    AutenticarProvider
   ]
 })
 export class AppModule {}

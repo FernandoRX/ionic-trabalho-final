@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><p  style="color: rgb(8, 93, 189); ">Gerenciador de Quadrinhos</p></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-list>
+   <ion-item>
+     <ion-label floating>Email</ion-label>
+     <ion-input [(ngModel)]="usuario.email"
+        name="email" type="text" autocapitalize="off"
+        required></ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-label floating>Senha</ion-label>
+     <ion-input [(ngModel)]="usuario.senha"
+        name="senha" type="password" required></ion-input>
+   </ion-item>    
+</ion-list>
+
+   <button ion-button block class="buttons" (click)="autenticar()">
+      Entrar
+  </button>
+
+</ion-content>

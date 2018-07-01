@@ -102,7 +102,7 @@ export class CriarFireBasePage {
       this.numeroCodBarra = res.text
       this.tipoDeCodBarra = res.format
     }).catch((err) => {
-      this.mostraMenssagem('Erro ao realizar leitura')
+      this.mostraMenssagem('Erro ao realizar leitura',2500)
     })
   }
 

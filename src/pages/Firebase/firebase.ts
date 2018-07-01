@@ -51,6 +51,4 @@ export class FirebasePage {
     });
     menssagem.present();
   }
-
-  
 }

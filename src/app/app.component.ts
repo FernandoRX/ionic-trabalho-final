@@ -4,11 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { FirebasePage } from '../pages/Firebase/firebase';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = FirebasePage;
+  rootPage:any = 'LoginPage' ;
 
   pages: any
 
@@ -23,11 +24,8 @@ export class MyApp {
     });
     this.pages = [
       {title: 'Quadrinhos', component: FirebasePage},
-      {title: 'E-mail', component: 'EmailPage'},
-      {title: 'Pipe', component: 'PipePage'},
-      {title: 'ArquivoTexto', component: 'ArquivoTextPage'},
-      {title: 'Mapa', component: 'MapPage'}
-
+      {title: 'E-mail + TXT', component: 'EmailPage'},
+      {title: 'Sair', component: 'LoginPage'}
     ]
   }
   openPage(page) {

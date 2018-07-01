@@ -10,7 +10,7 @@
       <button ion-button menuToggle style="color:  rgb(8, 93, 189); ">
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title><p  style="color: rgb(8, 93, 189); ">Enviar emails</p></ion-title>
+      <ion-title><p  style="color: rgb(8, 93, 189); ">Emails + TXT</p></ion-title>
     </ion-navbar>
 
   </ion-header>
@@ -25,4 +25,23 @@
 
       <button ion-button block class="buttons"  (click)="sendMail(email)">Enviar</button>
     </ion-list>
+
+    <ion-item>
+        <ion-label floating>Criar TXT</ion-label>
+        <ion-input [(ngModel)]="text"></ion-input>
+    </ion-item>
+    <button ion-button block class="buttons" (click)="criar(text)">
+        Salvar
+      </button>
+
+
+      <ion-card *ngIf="texto !== null" class="hqCard">
+        <ion-card-content>
+          <p>{{texto}}</p>
+        </ion-card-content>
+    </ion-card>
+    <button ion-button block class="buttons"(click)="deletar()">
+          Deletar
+      </button>
+
   </ion-content>
