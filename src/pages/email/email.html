@@ -7,10 +7,10 @@
 <ion-header>
 
     <ion-navbar>
-      <button ion-button menuToggle>
+      <button ion-button menuToggle style="color:  rgb(8, 93, 189); ">
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>E-mail</ion-title>
+      <ion-title><p  style="color: rgb(8, 93, 189); ">Enviar emails</p></ion-title>
     </ion-navbar>
 
   </ion-header>
@@ -18,11 +18,11 @@
 
   <ion-content padding>
     <ion-list>
-      <ion-item class="no-background-container">
+      <ion-item>
         <ion-label floating>Email</ion-label>
         <ion-input [(ngModel)]="email"></ion-input>
       </ion-item>
 
-      <button ion-button large block color="primary" (click)="enviarEmailDinamico()">Enviar</button>
+      <button ion-button block class="buttons"  (click)="sendMail(email)">Enviar</button>
     </ion-list>
   </ion-content>
