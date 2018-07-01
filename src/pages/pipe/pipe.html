@@ -1,0 +1,30 @@
+<!--
+  Generated template for the PipePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>pipe</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <div>
+    <ion-item no-lines class="no-background-container">
+      <ion-label floating>DIGITE O TEXTO PARA TROCAR PARA MINUSCULO</ion-label>
+      <ion-input type="text" [(ngModel)]="toLowerCase"></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <p>
+      <b>Original: </b>{{toLowerCase}}</p>
+    <p>
+      <b>Transform: </b>{{toLowerCase | transformaMinusculo}}</p>
+  </div>
+</ion-content>

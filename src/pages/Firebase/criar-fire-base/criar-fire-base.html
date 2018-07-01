@@ -1,0 +1,60 @@
+<!--
+  Generated template for the CriarProdutoFirebasePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> <p  style="color: rgb(8, 93, 189); ">Novo Quadrinho</p></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+<button ion-button block class="buttons" (click)="tirarFotoBase64()">Adicionar foto</button>
+  <img [src]="fotoSelecionada" style="width: 150px">
+
+  <button ion-button block class="buttons" (click)="lerCodBarra()">Adicionar CodBarra</button>
+
+  <form [formGroup]="formItem" padding (ngSubmit)="submit(); $event.preventDefault()">
+    <ion-list no-lines>
+      <ion-item *ngIf="error" class="no-background-container">
+        <p>Dados Invalidos</p>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Codigo: {{numeroCodBarra}}</ion-label> 
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" spellcheck="false" autocapitalize="off" formControlName="nome"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formItem.get('nome').errors && formItem.get('nome').dirty" class="no-background-container">
+        <p *ngIf="formItem.get('nome').hasError('required')">Campo obrigatório</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Autor</ion-label>
+        <ion-input type="text" spellcheck="false" autocapitalize="off" formControlName="autor"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formItem.get('autor').errors && formItem.get('autor').dirty" class="no-background-container">
+        <p *ngIf="formItem.get('autor').hasError('required')">Campo obrigatório</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Valor</ion-label>
+        <ion-input type="number" formControlName="valor" ionic-password-show-hide></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formItem.get('valor').errors && formItem.get('valor').dirty" class="no-background-container">
+        <p *ngIf="formItem.get('valor').hasError('required')">Campo obrigatório</p>
+      </ion-item>   
+
+    </ion-list>
+
+    <button ion-button block class="buttons" type="submit" [disabled]="formItem.invalid">Enviar</button>
+  </form>
+</ion-content>

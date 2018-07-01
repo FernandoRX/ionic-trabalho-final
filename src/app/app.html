@@ -1,0 +1,15 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+        <ion-title> <p  style="color: rgb(8, 93, 189); ">Menu</p></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item style="color: rgb(8, 93, 189); " *ngFor="let p of pages" (click)="openPage(p)">{{p.title}}</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
